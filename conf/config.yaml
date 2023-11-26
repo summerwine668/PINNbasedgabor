@@ -1,0 +1,21 @@
+task: gaborlpinn
+exp_name: pinnbasedgabor
+net_name: gabor
+tensorboard_root: "/home/huanx0a/PINNbasedgabor/exp/tensorboard/"
+# task_type: test
+task_type: train
+loss_type: implicit
+
+results_path: results/${net_name}/${exp_name}-${now:%Y-%m-%d-%H-%M-%S.%fZ}/
+checkpoint_path: ${results_path}/checkpoints/
+visualize_path: ${results_path}/vis/ # set it None to skip vis
+code_path: ${results_path}/code/
+tensorboard_path: results/tb/${task}/${exp_name}-${net_name}-${now:%Y-%m-%d-%H-%M-%S.%fZ}
+
+defaults:
+  - _self_
+  - gabor2d: gabor2d
+
+hydra:
+  run:
+    dir: /home/huanx0a/PINNbasedgabor/exp/

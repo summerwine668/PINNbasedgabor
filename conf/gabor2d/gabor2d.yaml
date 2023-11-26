@@ -1,0 +1,70 @@
+device: 'cuda:2'
+seed: 9999
+ub: [2.5,2.5]
+lb: [0.0,0.0]
+fre: 4.0
+pre_train_fre: 4.0
+# model_type: 'pinn'
+model_type: 'gaborl'
+model_name: 'layer'
+step_size: 50000
+gamma: 0.6
+nx: 101
+nz: 101
+n_batches: 1
+lr: 1e-3
+vmin: -0.6
+vmax: 0.6
+epochs: 50000
+axisx: 2.5
+axisz: 2.5
+fine_ratio: 1
+split: 4
+check_point: 0
+out_channels: 2
+hidden_layers: [32, 32, 32, 32]
+scale: 32.0
+alpha: 6.0
+beta: 1.0
+last_layer_type: 0
+dim_d: 10 # for the learnable gabor center
+learned_theta: False
+dim_theta: 4
+learned_delta: False
+dim_delta: 4
+learned_gamma: False
+dim_gamma: 4
+learned_phi: False
+dim_phi: 4
+# training setting
+print_loss_every: 100
+save_model_every: 5000
+test_every: 100
+data_root_path: '/home/huanx0a/PINN-instant/data/'
+train_file: 'layer_4.0Hz_train_data_single_source.mat'
+test_file: 'layer_4.0Hz_testdata.mat'
+velocity_file: 'layer_velocity.mat'
+state_dict_file: None
+test_source: 4
+# regularization: 'None'
+regularization: 1.0
+regular_v: 1.5
+derivate_type: 'ad'
+split_only: False
+check: False
+train_flag: True
+adam: True
+lbfgs: False
+multi_card: False
+plot_pde_residual: False
+# encoding config
+encoding_config:
+  encoding_type: -1
+  embed_dim: 2
+  multires: 1
+  n_levels: 6
+  n_features_per_level: 2
+  log2_hashmap_size: 8
+  base_res: 4
+  finest_res: 512
+  bounding_box: [[-1.0,-1.0], [1.0,1.0]]
