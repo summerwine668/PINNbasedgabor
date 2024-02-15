@@ -121,7 +121,6 @@ class GaborNetL(nn.Module):
         if self.last_layer_type==5:
             out_real, out_imag = self.filter(x, (2.0 * self.activation_d(self.lineard(x)) - 1.0), v)
             out_real, out_imag = out_real * (self.linear(out)), out_imag * (self.linear(out))
-            out = torch.cat([torch.sum(out_real, dim=1, keepdim=True), torch.sum(out_imag, dim=1, keepdim=True)], dim=1) # original version directly sum all components
-            out = torch.cat([out_real, out_imag], dim=1)
+            out = torch.cat([torch.sum(out_real, dim=1, keepdim=True), torch.sum(out_imag, dim=1, keepdim=True)], dim=1)
         return out
     
