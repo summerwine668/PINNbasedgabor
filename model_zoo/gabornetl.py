@@ -5,6 +5,9 @@ import numpy as np
 from utils.encoding import get_embedder
 
 class Basicblock(nn.Module):
+    """
+    The basic block for MLP
+    """
     def __init__(self,in_planes,out_planes):
         super(Basicblock, self).__init__()
         self.layer1 = nn.Linear(in_planes,out_planes)
@@ -14,6 +17,9 @@ class Basicblock(nn.Module):
         return out
 
 def weight_init(m):
+    """
+    THe initilization for weights in the neural networks
+    """
     classname = m.__class__.__name__
     if classname.find('Linear')!=-1:
         nn.init.xavier_normal_(m.weight,gain=1)
@@ -80,9 +86,8 @@ class GaborLayerd(nn.Module):
 class GaborNetL(nn.Module):
     '''
     Gabor layer applied to the last layer of the PINN
-    1: the version adding one linear layer after the gabor layer
-    2: direct sum the real and imaginary part of the gabor layer
-    3: add another branch for center ppint of the gabor layer
+      - direct sum the real and imaginary part of the gabor layer
+      - add another branch for center point of the gabor layer
     '''
     
     def __init__(self, in_channels, out_channels, layers, **kwargs) -> None:
@@ -102,8 +107,6 @@ class GaborNetL(nn.Module):
                 nn.GELU(),
                 nn.Linear(dim_d, 2)
             )
-            self.out_linear_real = nn.Linear(layers[-1], 1)
-            self.out_linear_imag = nn.Linear(layers[-1], 1)
         else:
             raise ValueError('unknown last layer type')
             
