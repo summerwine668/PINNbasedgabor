@@ -28,7 +28,7 @@ Run
 ```
 bash run.sh
 ```
-After running, go to folder `exp/results/tb` in the root_path produced by the procedures, and you could use `tensorboard` to visualize the trainig process and predictions.
+Before running, you can download the data from [Click here](https://drive.google.com/file/d/1UTEm6M2Ex0eeyyVoyHmQ39IduNR5NNvL/view?usp=sharing). After running, go to folder `exp/results/tb` in the root_path produced by the procedures, and you could use `tensorboard` to visualize the trainig process and predictions.
 
 #### Check the results
 After finish the training, you could go to the `<run_root>/results/tb` to use `tensorboard --logdir=./` to check the training metrics and testing results.
