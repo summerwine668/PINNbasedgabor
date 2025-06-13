@@ -38,10 +38,13 @@ configurations may be required for different combinations of workstation and GPU
 
 ## Cite us 
 ```bibtex
-@article{alkhalifah2023physics,
+@article{alkhalifah2024physics,
   title={Physics-informed neural wavefields with Gabor basis functions},
   author={Alkhalifah, Tariq and Huang, Xinquan},
-  journal={arXiv preprint arXiv:2310.10602},
-  year={2023}
+  journal={Neural Networks},
+  volume={175},
+  pages={106286},
+  year={2024},
+  publisher={Elsevier}
 }
 ```
